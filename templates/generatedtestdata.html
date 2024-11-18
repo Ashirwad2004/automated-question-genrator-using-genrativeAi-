@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div class="container mt-5">
+        <!-- Generated Q&A Section -->
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card border-light shadow-sm">
+                    <div class="card-header">
+                        <h2 class="h5 mb-0">Generated Subjective Questions and Answers</h2>
+                    </div>
+
+                    <!-- Responsive Table for Questions and Answers -->
+                    <div class="table-responsive p-3">
+                        <table id="example" class="table table-hover align-items-center">
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Answer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for qa in cresults %}
+                                    <tr>
+                                        <td>{{ qa[0] | safe }}</td>
+                                        <td>{{ qa[1] | safe }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DataTables Initialization Script -->
+    <script>
+        $(document).ready(function() {
+            // Delay DataTable initialization until the table is fully rendered
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                "pageLength": 10, // Default number of rows shown
+                "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]], // Make it dynamic
+                "order": [[0, "asc"]] // Sort by the first column (Questions)
+            });
+        });
+    </script>
+{% endblock %}

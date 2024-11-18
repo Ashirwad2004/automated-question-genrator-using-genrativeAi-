@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="row align-items-center d-flex justify-content-center">
+  <div class="col-12 mb-4">
+    <div class="bluecard">
+      <div class="card bluecard border-light shadow-sm components-section align-items-center d-flex justify-content-center">
+        <div class="card-body align-items-center d-flex justify-content-center">
+          <div class="row mb-4">
+            <div class="col-lg-12 col-sm-16">
+              <h3 class="h3 text-center title">GENERATE QUESTIONS & ANSWERS</h3>
+            </div>
+            <img src="{{ url_for('static', filename='ai.png') }}" height="340px">
+            <div class="card-body">
+              <form method="POST" action="test_generate">
+                <div class="mb-4">
+                  <div class="form-group">
+                    <label class="labelcolor" for="exampleFormControlTextarea1">Input Text</label>
+                    <textarea name="itext" class="form-control" placeholder="Input Text?" rows="6" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label class="my-1 mr-2 labelcolor" for="inlineFormCustomSelectPref">Choose Question Type</label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="test_type" required>
+                      <option value="objective">MCQ</option>
+                      <option value="subjective">Q&A</option>
+                      
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="labelcolor" for="exampleFormControlTextarea1">No of Questions</label>
+                    <input type="number" name="noq" class="form-control" placeholder="No. of Questions" min="1" required>
+                  </div>
+                  <input type="submit" class="btn btn-primary" value="Generate">
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Display generated questions below -->
+          {% if cresults %}
+          <div class="row">
+            <div class="col-lg-12">
+              <h4 class="h4 text-center title">Generated Questions & Answers</h4>
+              <ul class="list-group">
+                {% for question, answer in cresults %}
+                <li class="list-group-item">
+                  <strong>Q: {{ question }}</strong><br>
+                  <em>A: {{ answer }}</em>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
