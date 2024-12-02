@@ -25,7 +25,7 @@
 
 <ol>
     <li><strong>Clone the repository</strong>:
-        <pre><code>git clone https://github.com/ArmanAhmed00/Automated-Question-Builder.git
+        <pre><code>git clone https://github.com/Ashirwad2004/automated-question-genrator-using-genrativeAi-
 cd Automated-Question-Builder</code></pre>
     </li>
     <li><strong>Create and activate a virtual environment</strong>:
@@ -52,7 +52,7 @@ This project is licensed under the MIT License. See the License file for more de
 
 <h2>Contributors</h2>
 
-- ARMAN AHMED
+- ASHIRWAD KUMAR JHA
 
 </h2>Contact</h2>
 
