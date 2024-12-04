@@ -13,7 +13,7 @@ import spacy
 nlp = spacy.load("en_core_web_sm")
 
 # Configure Gemini API using your API key
-genai.configure(api_key="AIzaSyB682LB5m6kNDKTDhzuyURXE642jl_lqh0")
+genai.configure(api_key="AIzaSyDzE2bsXm7R2xWio1O_Upx9IygnTg1vxNs")
 
 # Switch to a simpler Gemini model (if available)
 gemini_model = genai.GenerativeModel('gemini-pro')  # Use 'gemini-lite' or 'gemini-pro'
